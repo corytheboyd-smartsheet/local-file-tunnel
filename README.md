@@ -21,3 +21,12 @@ If you don't set an `NGROK_AUTHTOKEN` in a `.env` file, you will be cursed with 
 From there, you can submit URLs to the files being served for testing asset ingestion, i.e. `https://34f0-38-97-212-59.ngrok.io/CA_AssetUploadTest.pdf`
 
 ![Directory listing](demo.png)
+
+## Caveats
+
+This account must use an ngrok account, otherwise you cannot serve static files:
+
+![No can has static html file serving without ngrok auth](no-can-has-static-html-files-ngrok.png)
+
+You can also only run a single `ngrok` agent per account. If you run this and then try to start another agent, that other agent will fail to start.
+
