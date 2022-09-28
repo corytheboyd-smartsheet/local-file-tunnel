@@ -9,12 +9,5 @@ services:
     volumes:
       - public:/public
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-    expose:
-      - 80
-  ngrok:
-    image: ngrok/ngrok:2-alpine
-    env_file:
-      - .env
-    command: http nginx:80
     ports:
-      - "4040:4040"
+      - "4000:80"

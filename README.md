@@ -1,32 +1,15 @@
 # local-file-tunnel
 
-Create temporary local file server with ngrok tunnel.
+No bullshit static file server. 
 
-If you don't set an `NGROK_AUTHTOKEN` in a `.env` file, you will be cursed with the ngrok session timeout.
+Start:
+```
+bin/start
+```
 
-## Usage
+Copy file to server:
+```
+bin/copy-file-to-container foo.txt
+```
 
-1. Start the server:
-    ```
-    bin/start
-    ```
-1. Copy a file to the server:
-    ```
-    bin/copy-file-to-container ~/Downloads/CA_AssetUploadtest.pdf.png
-    ```
-1. Get the `ngrok` URL: http://localhost:4040/status
-   - Note: create a `.env` file and add `NGROK_AUTHTOKEN` to prevent the session from dying
-1. Visit the `ngrok` URL to see files that you have uploaded
-
-From there, you can submit URLs to the files being served for testing asset ingestion, i.e. `https://34f0-38-97-212-59.ngrok.io/CA_AssetUploadTest.pdf`
-
-![Directory listing](demo.png)
-
-## Caveats
-
-This account must use an ngrok account, otherwise you cannot serve static files:
-
-![No can has static html file serving without ngrok auth](no-can-has-static-html-files-ngrok.png)
-
-You can also only run a single `ngrok` agent per account. If you run this and then try to start another agent, that other agent will fail to start.
-
+View index of files: http://localhost:3800/
