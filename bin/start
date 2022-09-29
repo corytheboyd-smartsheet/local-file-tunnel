@@ -2,4 +2,8 @@
 
 set -euo pipefail
 
+SERVER_URL="$("$HOME/code/ngrok-local-magic/bin/tunnels" | \
+  jq --raw-output '.[] | select(.metadata == "file-sync") | .public_url')"
+export SERVER_URL
+
 docker compose up --build --remove-orphans

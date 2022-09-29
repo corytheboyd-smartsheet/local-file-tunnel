@@ -1,0 +1,14 @@
+server {
+    server_name ${SERVER_NAME};
+
+    listen 80;
+    listen [::]:80;
+
+    sendfile on;
+
+    root /public;
+
+    location / {
+        autoindex on;
+    }
+}
